@@ -2,6 +2,8 @@
 
 **By Hussein Bouik**
 
+**Live demo:** https://husseinbouik.github.io/zoning-studio/
+
 An interactive portfolio showcase of 3D product-configurator logic: design a
 partition wall or cabinet-style article, divide it with a real
 **linear-division formula**, watch every zone resize live in 3D, and export
