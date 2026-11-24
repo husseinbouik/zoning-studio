@@ -67,8 +67,9 @@ export default function HowItWorks() {
         ))}
       </div>
       <p className="how-credit">
-        Engine, formula language and zoning concept: original work by <strong>Hussein Bouik</strong>, from his
-        configurator-logic experiments. This showcase reuses that engine code directly — open the Export panel
+        Engine, formula language and zoning concept: original work by <strong>Hussein Bouik</strong>,
+        developed professionally for made-to-measure wood products — production configurator logic for
+        cabinets and partitions. This showcase reuses that engine code directly — open the Export panel
         to see the article it produces as JSON.
       </p>
     </section>
