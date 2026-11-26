@@ -23,6 +23,15 @@ const INITIAL_DESIGN: Design = {
   selectedColumn: 1,
 };
 
+/**
+ * Embed mode (?embed=1): render ONLY the 3D scene — no header, no control
+ * panels, no text overlays — for the portfolio card's playable frame.
+ * Orbit + column interaction stay active; the model fills the frame.
+ */
+const EMBED =
+  typeof window !== 'undefined' &&
+  new URLSearchParams(window.location.search).get('embed') === '1';
+
 const LINKEDIN_URL = 'https://www.linkedin.com/in/hussein-bouik';
 const GITHUB_URL = 'https://github.com/husseinbouik/zoning-studio';
 const CV_URL = 'Hussein_Bouik_CV.pdf';
@@ -74,6 +83,27 @@ export default function App() {
     `Column ${selectedIdx + 1} is selected.`;
 
   const fallback = <LayoutFallback2D design={design} layout={sceneLayout} />;
+
+  if (EMBED) {
+    return (
+      <div className="embed-root">
+        <section className="canvas-wrap embed-canvas" aria-label="3D article view">
+          {webglOk ? (
+            <SceneErrorBoundary fallback={fallback}>
+              <Scene
+                design={design}
+                layout={sceneLayout}
+                finish={finish}
+                onSelectColumn={(i) => patch({ selectedColumn: i })}
+              />
+            </SceneErrorBoundary>
+          ) : (
+            fallback
+          )}
+        </section>
+      </div>
+    );
+  }
 
   return (
     <div className="app">
